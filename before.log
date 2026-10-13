@@ -1,0 +1,9 @@
+PyArrow 26.0.0; Python 3.14.8
+Real in-memory Parquet write/read; one process per comparison
+file            == None: False       .equals(None): TypeError
+row_group       == None: SIGSEGV     .equals(None): SIGSEGV
+column_chunk    == None: SIGSEGV     .equals(None): SIGSEGV
+statistics      == None: SIGSEGV     .equals(None): SIGSEGV
+schema          == None: SIGSEGV     .equals(None): SIGSEGV
+column_schema   == None: SIGSEGV     .equals(None): SIGSEGV
+Native crashes: 10

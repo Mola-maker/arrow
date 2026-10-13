@@ -1,0 +1,26 @@
+[
+  {
+    "kind": "file",
+    "exit_code": 0
+  },
+  {
+    "kind": "row_group",
+    "exit_code": -11
+  },
+  {
+    "kind": "column_chunk",
+    "exit_code": -11
+  },
+  {
+    "kind": "statistics",
+    "exit_code": -11
+  },
+  {
+    "kind": "schema",
+    "exit_code": 1
+  },
+  {
+    "kind": "column_schema",
+    "exit_code": -11
+  }
+]

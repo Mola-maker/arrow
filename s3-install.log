@@ -1,0 +1,69 @@
+Collecting boto3==1.43.106
+  Downloading boto3-1.43.106-py3-none-any.whl.metadata (6.6 kB)
+Collecting aiobotocore==3.9.2
+  Downloading aiobotocore-3.9.2-py3-none-any.whl.metadata (32 kB)
+Collecting s3fs==2026.9.0
+  Downloading s3fs-2026.9.0-py3-none-any.whl.metadata (1.2 kB)
+Requirement already satisfied: botocore<1.44.0,>=1.43.106 in ./validation-arrow/venv/lib/python3.14/site-packages (from boto3==1.43.106) (1.43.112)
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in ./validation-arrow/venv/lib/python3.14/site-packages (from boto3==1.43.106) (1.1.0)
+Requirement already satisfied: s3transfer<0.20.0,>=0.19.0 in ./validation-arrow/venv/lib/python3.14/site-packages (from boto3==1.43.106) (0.19.2)
+Collecting aiohttp<4.0.0,>=3.14.0 (from aiobotocore==3.9.2)
+  Downloading aiohttp-3.14.5-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting aioitertools<1.0.0,>=0.5.1 (from aiobotocore==3.9.2)
+  Downloading aioitertools-0.13.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting botocore<1.44.0,>=1.43.106 (from boto3==1.43.106)
+  Downloading botocore-1.43.106-py3-none-any.whl.metadata (5.6 kB)
+Collecting multidict<7.0.0,>=6.0.0 (from aiobotocore==3.9.2)
+  Downloading multidict-6.9.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in ./validation-arrow/venv/lib/python3.14/site-packages (from aiobotocore==3.9.2) (2.9.0.post0)
+Collecting wrapt<3.0.0,>=1.10.10 (from aiobotocore==3.9.2)
+  Downloading wrapt-2.5.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (7.6 kB)
+Requirement already satisfied: fsspec<2026.9.1,>=2026.9.0 in ./validation-arrow/venv/lib/python3.14/site-packages (from s3fs==2026.9.0) (2026.9.0)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting attrs>=17.3.0 (from aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading frozenlist-1.8.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting propcache>=0.2.0 (from aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading propcache-0.5.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.25.1 (from aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading yarl-1.25.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+Requirement already satisfied: urllib3!=2.2.0,<3,>=1.25.4 in ./validation-arrow/venv/lib/python3.14/site-packages (from botocore<1.44.0,>=1.43.106->boto3==1.43.106) (2.8.0)
+Requirement already satisfied: six>=1.5 in ./validation-arrow/venv/lib/python3.14/site-packages (from python-dateutil<3.0.0,>=2.1->aiobotocore==3.9.2) (1.17.0)
+Collecting idna>=2.0 (from yarl<2.0,>=1.25.1->aiohttp<4.0.0,>=3.14.0->aiobotocore==3.9.2)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Downloading boto3-1.43.106-py3-none-any.whl (140 kB)
+Downloading aiobotocore-3.9.2-py3-none-any.whl (102 kB)
+Downloading s3fs-2026.9.0-py3-none-any.whl (33 kB)
+Downloading aiohttp-3.14.5-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 3.8 MB/s  0:00:00
+Downloading aioitertools-0.13.0-py3-none-any.whl (24 kB)
+Downloading botocore-1.43.106-py3-none-any.whl (16.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 15.8 MB/s  0:00:01
+Downloading multidict-6.9.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (333 kB)
+Downloading wrapt-2.5.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (251 kB)
+Downloading yarl-1.25.1-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+Downloading frozenlist-1.8.0-cp314-cp314-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading propcache-0.5.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (232 kB)
+Installing collected packages: wrapt, propcache, multidict, idna, frozenlist, attrs, aioitertools, aiohappyeyeballs, yarl, botocore, aiosignal, aiohttp, boto3, aiobotocore, s3fs
+  Attempting uninstall: botocore
+    Found existing installation: botocore 1.43.112
+    Uninstalling botocore-1.43.112:
+      Successfully uninstalled botocore-1.43.112
+  Attempting uninstall: boto3
+    Found existing installation: boto3 1.43.112
+    Uninstalling boto3-1.43.112:
+      Successfully uninstalled boto3-1.43.112
+  Attempting uninstall: s3fs
+    Found existing installation: s3fs 0.4.2
+    Uninstalling s3fs-0.4.2:
+      Successfully uninstalled s3fs-0.4.2
+
+Successfully installed aiobotocore-3.9.2 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aioitertools-0.13.0 aiosignal-1.4.0 attrs-26.1.0 boto3-1.43.106 botocore-1.43.106 frozenlist-1.8.0 idna-3.20 multidict-6.9.1 propcache-0.5.4 s3fs-2026.9.0 wrapt-2.5.0 yarl-1.25.1

@@ -1,0 +1,89 @@
+{
+  "pyarrow": "26.0.0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "cpp_build_info": {
+    "version": "26.0.0",
+    "version_info": [
+      26,
+      0,
+      0
+    ],
+    "so_version": "2600",
+    "full_so_version": "2600.0.0",
+    "compiler_id": "GNU",
+    "compiler_version": "14.2.1",
+    "compiler_flags": " -Wno-noexcept-type -Wno-self-move -Wno-subobject-linkage  -fdiagnostics-color=always  -Wall -fno-semantic-interposition -msse4.2 ",
+    "git_id": "",
+    "git_description": "",
+    "package_kind": "python-wheel-manylinux228",
+    "build_type": "release"
+  },
+  "results": [
+    {
+      "object": "file",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    },
+    {
+      "object": "row_group",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    },
+    {
+      "object": "column_chunk",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    },
+    {
+      "object": "statistics",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    },
+    {
+      "object": "schema",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    },
+    {
+      "object": "column_schema",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    }
+  ]
+}

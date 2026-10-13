@@ -1,0 +1,9 @@
+PyArrow 26.0.0; Python 3.12.14
+Real in-memory Parquet write/read; one process per comparison
+file            == None: False       .equals(None): TypeError
+row_group       == None: False       .equals(None): TypeError
+column_chunk    == None: False       .equals(None): TypeError
+statistics      == None: False       .equals(None): TypeError
+schema          == None: False       .equals(None): TypeError
+column_schema   == None: False       .equals(None): TypeError
+Native crashes: 0

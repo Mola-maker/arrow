@@ -1,0 +1,91 @@
+performance hint: source/python/pyarrow/_parquet.pyx:1240:37: Exception check after calling 'GetResultValue[shared_ptr[COutputStream]]' will always require the GIL to be acquired. Declare 'GetResultValue[shared_ptr[COutputStream]]' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+performance hint: source/python/pyarrow/_parquet.pyx:1791:50: Exception check after calling 'GetResultValue[unique_ptr[CRecordBatchReader]]' will always require the GIL to be acquired. Declare 'GetResultValue[unique_ptr[CRecordBatchReader]]' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+performance hint: source/python/pyarrow/_parquet.pyx:1798:50: Exception check after calling 'GetResultValue[unique_ptr[CRecordBatchReader]]' will always require the GIL to be acquired. Declare 'GetResultValue[unique_ptr[CRecordBatchReader]]' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+performance hint: source/python/pyarrow/_parquet.pyx:2423:42: Exception check after calling 'GetResultValue[shared_ptr[COutputStream]]' will always require the GIL to be acquired. Declare 'GetResultValue[shared_ptr[COutputStream]]' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+performance hint: source/python/pyarrow/_parquet.pyx:2459:45: Exception check after calling 'GetResultValue[unique_ptr[FileWriter]]' will always require the GIL to be acquired. Declare 'GetResultValue[unique_ptr[FileWriter]]' as 'noexcept' if you control the definition and you're sure you don't want the function to raise exceptions.
+[1/1] Cythonizing /home/omarchy/validation-arrow/source/python/pyarrow/_parquet.pyx
+running build_ext
+building 'pyarrow._parquet' extension
+/usr/bin/g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O3 -Wall -march=x86-64 -mtune=generic -O3 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/python/src=/usr/src/debug/python -flto=auto -ffat-lto-objects -march=x86-64 -mtune=generic -O3 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/python/src=/usr/src/debug/python -flto=auto -march=x86-64 -mtune=generic -O3 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/python/src=/usr/src/debug/python -flto=auto -fPIC -I/home/omarchy/validation-arrow/venv/lib/python3.14/site-packages/pyarrow/include -I/home/omarchy/validation-arrow/venv/lib/python3.14/site-packages/numpy/_core/include -I/home/omarchy/validation-arrow/venv/include -I/usr/include/python3.14 -c /home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp -o /home/omarchy/validation-arrow/build-before/temp/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.o -std=c++20 -O2
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp: In function ‘PyObject* __pyx_pf_7pyarrow_8_parquet__reconstruct_filemetadata(PyObject*, __pyx_obj_7pyarrow_3lib_Buffer*)’:
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:28549:108: warning: ‘static std::shared_ptr<parquet::FileMetaData> parquet::FileMetaData::Make(const void*, uint32_t*, const parquet::ReaderProperties&, std::shared_ptr<parquet::InternalFileDecryptor>)’ is deprecated: Deprecated in 26.0.0. Please pass metadata length as a int64_t. [-Wdeprecated-declarations]
+28549 |   __pyx_t_1 = __pyx_f_7pyarrow_8_parquet_12FileMetaData_init(__pyx_v_metadata,  parquet::FileMetaData::Make(__pyx_v_buffer->data(), (&__pyx_v_metadata_len))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1020, __pyx_L1_error)
+      |                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/omarchy/validation-arrow/venv/lib/python3.14/site-packages/pyarrow/include/parquet/column_reader.h:29,
+                 from /home/omarchy/validation-arrow/venv/lib/python3.14/site-packages/pyarrow/include/parquet/api/reader.h:21,
+                 from /home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:1621:
+/home/omarchy/validation-arrow/venv/lib/python3.14/site-packages/pyarrow/include/parquet/metadata.h:245:40: note: declared here
+  245 |   static std::shared_ptr<FileMetaData> Make(
+      |                                        ^~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp: At global scope:
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7080:42: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_table’ defined but not used [-Wunused-variable]
+ 7080 | static std::shared_ptr< arrow::Table>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_table)(PyObject *); /*proto*/
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7079:48: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_batch’ defined but not used [-Wunused-variable]
+ 7079 | static std::shared_ptr< arrow::RecordBatch>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_batch)(PyObject *); /*proto*/
+      |                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7078:43: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_tensor’ defined but not used [-Wunused-variable]
+ 7078 | static std::shared_ptr< arrow::Tensor>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_tensor)(PyObject *); /*proto*/
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7077:52: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_csr_matrix’ defined but not used [-Wunused-variable]
+ 7077 | static std::shared_ptr< arrow::SparseCSRMatrix>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_csr_matrix)(PyObject *); /*proto*/
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7076:52: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_csf_tensor’ defined but not used [-Wunused-variable]
+ 7076 | static std::shared_ptr< arrow::SparseCSFTensor>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_csf_tensor)(PyObject *); /*proto*/
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7075:52: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_csc_matrix’ defined but not used [-Wunused-variable]
+ 7075 | static std::shared_ptr< arrow::SparseCSCMatrix>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_csc_matrix)(PyObject *); /*proto*/
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7074:52: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_coo_tensor’ defined but not used [-Wunused-variable]
+ 7074 | static std::shared_ptr< arrow::SparseCOOTensor>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_sparse_coo_tensor)(PyObject *); /*proto*/
+      |                                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7073:49: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_chunked_array’ defined but not used [-Wunused-variable]
+ 7073 | static std::shared_ptr< arrow::ChunkedArray>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_chunked_array)(PyObject *); /*proto*/
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7072:42: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_array’ defined but not used [-Wunused-variable]
+ 7072 | static std::shared_ptr< arrow::Array>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_array)(PyObject *); /*proto*/
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7071:43: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_scalar’ defined but not used [-Wunused-variable]
+ 7071 | static std::shared_ptr< arrow::Scalar>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_scalar)(PyObject *); /*proto*/
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7069:42: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_field’ defined but not used [-Wunused-variable]
+ 7069 | static std::shared_ptr< arrow::Field>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_field)(PyObject *); /*proto*/
+      |                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7067:43: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_unwrap_buffer’ defined but not used [-Wunused-variable]
+ 7067 | static std::shared_ptr< arrow::Buffer>  (*__pyx_f_7pyarrow_3lib_pyarrow_unwrap_buffer)(PyObject *); /*proto*/
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7064:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_tensor’ defined but not used [-Wunused-variable]
+ 7064 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_tensor)(std::shared_ptr< arrow::Tensor>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7063:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_csr_matrix’ defined but not used [-Wunused-variable]
+ 7063 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_csr_matrix)(std::shared_ptr< arrow::SparseCSRMatrix>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7062:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_csf_tensor’ defined but not used [-Wunused-variable]
+ 7062 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_csf_tensor)(std::shared_ptr< arrow::SparseCSFTensor>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7061:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_csc_matrix’ defined but not used [-Wunused-variable]
+ 7061 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_csc_matrix)(std::shared_ptr< arrow::SparseCSCMatrix>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7060:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_coo_tensor’ defined but not used [-Wunused-variable]
+ 7060 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_sparse_coo_tensor)(std::shared_ptr< arrow::SparseCOOTensor>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7058:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_array’ defined but not used [-Wunused-variable]
+ 7058 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_array)(std::shared_ptr< arrow::Array>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7055:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_field’ defined but not used [-Wunused-variable]
+ 7055 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_field)(std::shared_ptr< arrow::Field>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7054:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_data_type’ defined but not used [-Wunused-variable]
+ 7054 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_data_type)(std::shared_ptr< arrow::DataType>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7053:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_resizable_buffer’ defined but not used [-Wunused-variable]
+ 7053 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_resizable_buffer)(std::shared_ptr< arrow::ResizableBuffer>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:7052:20: warning: ‘__pyx_f_7pyarrow_3lib_pyarrow_wrap_buffer’ defined but not used [-Wunused-variable]
+ 7052 | static PyObject *(*__pyx_f_7pyarrow_3lib_pyarrow_wrap_buffer)(std::shared_ptr< arrow::Buffer>  const &); /*proto*/
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.cpp:1509:
+/usr/include/python3.14/datetime.h:197:25: warning: ‘PyDateTimeAPI’ defined but not used [-Wunused-variable]
+  197 | static PyDateTime_CAPI *PyDateTimeAPI = NULL;
+      |                         ^~~~~~~~~~~~~
+/usr/bin/g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O3 -Wall -march=x86-64 -mtune=generic -O3 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/python/src=/usr/src/debug/python -flto=auto -ffat-lto-objects -march=x86-64 -mtune=generic -O3 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/python/src=/usr/src/debug/python -flto=auto -march=x86-64 -mtune=generic -O3 -pipe -fno-plt -fexceptions -Wp,-D_FORTIFY_SOURCE=3 -Wformat -Werror=format-security -fstack-clash-protection -fcf-protection -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -g -ffile-prefix-map=/build/python/src=/usr/src/debug/python -flto=auto -shared -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto -Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,pack-relative-relocs -flto=auto /home/omarchy/validation-arrow/build-before/temp/home/omarchy/validation-arrow/build-before/cython/home/omarchy/validation-arrow/source/python/pyarrow/_parquet.o -L/home/omarchy/validation-arrow/venv/lib/python3.14/site-packages/pyarrow -L/usr/lib -Wl,--enable-new-dtags -Wl,-rpath,$ORIGIN -larrow_python -lparquet -larrow -o /home/omarchy/validation-arrow/build-before/lib/pyarrow/_parquet.cpython-314-x86_64-linux-gnu.so

@@ -1,0 +1,28 @@
+{
+  "base": "9b34c4a6a8856212b885f6a1e934795af04f3192",
+  "candidate": "dc2dbb1465f46aa6a2a73ca3e591c5764f3883da",
+  "issue": "https://github.com/apache/arrow/issues/53500",
+  "ubuntu": {
+    "python": "3.12.14",
+    "compiler": "g++ 15.2.0",
+    "crashes_before": 8,
+    "crashes_after": 0,
+    "metadata_tests_passed": 46,
+    "metadata_tests_skipped": 1
+  },
+  "arch_vm": {
+    "python": "3.14.8",
+    "compiler": "g++ 16.2.1",
+    "crashes_before": 10,
+    "crashes_after": 0,
+    "metadata_tests_passed": 46,
+    "metadata_tests_skipped": 1
+  },
+  "skip_reason": "upstream large_memory test group is disabled by default",
+  "s3_test": "enabled and exercised with checksum-verified MinIO and compatible boto3/s3fs dependencies",
+  "pyarrow": "26.0.0",
+  "cython": "3.3.0",
+  "parquet_testing_commit": "56653c437c8092f704a092d0d1d4e600124cd49f",
+  "build_scope": "actual _parquet Cython extension from source, linked to matching unchanged official Arrow 26.0.0 C++ SDK; all available .pxd declarations match source",
+  "review": "independent read-only AI code review found no blocking issue"
+}

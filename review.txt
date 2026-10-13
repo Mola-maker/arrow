@@ -1,0 +1,1 @@
+Independent AI code review: no blocking issue. Checked five not-None guards before native pointer access, consistency with FileMetaData, unchanged .pxd layouts and valid-object behavior, and real-Parquet equality/inequality regressions for six metadata/schema types. Reviewer inspected source and generated C++ without editing or re-running tests.

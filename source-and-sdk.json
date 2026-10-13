@@ -1,0 +1,158 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "pyarrow": "26.0.0",
+  "base_commit": "9b34c4a6a8856212b885f6a1e934795af04f3192",
+  "sdk_source_tag": "apache-arrow-26.0.0",
+  "sdk_tag_commit": "3771b4ca6e0de72d85979afeaefb85dc2a69b931",
+  "declarations": [
+    {
+      "file": "lib.pxd",
+      "identical": true,
+      "sha256": "4c167e54c6ea1b083ed775f6ffa86412b8280de05fb3944057f32bbeded4f5d3"
+    },
+    {
+      "file": "_parquet.pxd",
+      "identical": true,
+      "sha256": "cc97240934ec85ab81cc12e647ee4f9853990d74af028327360fe976bc8b25f7"
+    },
+    {
+      "file": "_pyarrow_cpp_tests.pxd",
+      "identical": true,
+      "sha256": "9cfc9198db456ce52f4970b07a0000a5015f87c508fcaf47ab974de283c0c5da"
+    },
+    {
+      "file": "__init__.pxd",
+      "identical": true,
+      "sha256": "5a76abd69845a8cfd91e7666b5bbaa9bac091ec5e506860a855ed09a8da35070"
+    },
+    {
+      "file": "_acero.pxd",
+      "identical": true,
+      "sha256": "e62b21fc68065af8ade1e6e1ce866297b6fe9b4af646e1b9270628c6c1f7e052"
+    },
+    {
+      "file": "_dataset.pxd",
+      "identical": true,
+      "sha256": "020f6b521a01c9253a6dadf014b7ae67258c267cfd56401ff53404cd61b88545"
+    },
+    {
+      "file": "_json.pxd",
+      "identical": true,
+      "sha256": "b440933f5e0cd76f9bfe36b9408dec9d06ddd2e58f5a6982f45c245aadb7560d"
+    },
+    {
+      "file": "_cuda.pxd",
+      "identical": true,
+      "sha256": "57384cea3f5da4d82b00196f1492a8329442d00b39e629be337b603d33aec049"
+    },
+    {
+      "file": "_orc.pxd",
+      "identical": true,
+      "sha256": "ea12f472ad51b9fa900fe07f6d5de77b5ae1bb683e878ac3385350b126faaa9b"
+    },
+    {
+      "file": "_parquet_encryption.pxd",
+      "identical": true,
+      "sha256": "9884e21954508d8bcc854b5c2fdf0dbae7033d868626ce4e5ce47a8200333c3f"
+    },
+    {
+      "file": "_fs.pxd",
+      "identical": true,
+      "sha256": "4a61d2df57b2614ed5519955b8feb5dc72a0a5dedb10d9d0180a6f5ff8362dfc"
+    },
+    {
+      "file": "_csv.pxd",
+      "identical": true,
+      "sha256": "d59937669bef872f936fb73bf40a9de1eedb04cdb591cd49c56264974d98e031"
+    },
+    {
+      "file": "_dataset_parquet.pxd",
+      "identical": true,
+      "sha256": "cbede229e87207f781fe87aa8edb7869045b52954654dd6850c146218d776eb1"
+    },
+    {
+      "file": "_compute.pxd",
+      "identical": true,
+      "sha256": "7e18bcee390deb1e2a1bc25b02d464b31fb86139f7b05230db3671b8ad5f9693"
+    },
+    {
+      "file": "includes/libparquet_encryption.pxd",
+      "identical": true,
+      "sha256": "16c9f3a31a78d0c82e033cc35c05e5be21d5f8001965b69288d97cfa401ae210"
+    },
+    {
+      "file": "includes/libarrow.pxd",
+      "identical": true,
+      "sha256": "cc930de17566acf45d81bb147e4c87992b44199f83c7cc02c476e2aa00316d40"
+    },
+    {
+      "file": "includes/common.pxd",
+      "identical": true,
+      "sha256": "99ee21b621123c5999a24d4cf1e0d793d392fbba7d3a6ff5a5accda30bedb6e7"
+    },
+    {
+      "file": "includes/libarrow_substrait.pxd",
+      "identical": true,
+      "sha256": "3ed830545aac090073087ccaf95aa140e753c94f49e12ce243f967c51c0285fb"
+    },
+    {
+      "file": "includes/libarrow_fs.pxd",
+      "identical": true,
+      "sha256": "74fc52937f7c4637ef3524b7deb6e7ddc5a3a2c1e396ac682a562d214238957b"
+    },
+    {
+      "file": "includes/libgandiva.pxd",
+      "identical": true,
+      "sha256": "a36f2fe10e377585d011cc2574a3ba458b34b647b653a1995714268eae2b02de"
+    },
+    {
+      "file": "includes/__init__.pxd",
+      "identical": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "includes/libarrow_feather.pxd",
+      "identical": true,
+      "sha256": "3132540d06df28ff08afbd341686e5ef171b8d7ed672bb145789b115795fc27d"
+    },
+    {
+      "file": "includes/libarrow_dataset.pxd",
+      "identical": true,
+      "sha256": "72a5752d0bdfb0ab51c1e3c5696521f1d08595be89103f2d2c60acaed4bf325f"
+    },
+    {
+      "file": "includes/libarrow_acero.pxd",
+      "identical": true,
+      "sha256": "cc175ec58279167696c0765c31ab39a095ca3cf4d27f723398abbb783b2d04d7"
+    },
+    {
+      "file": "includes/libparquet.pxd",
+      "identical": true,
+      "sha256": "853f1d0fafb2e7d5f2c80e51a4246e2d2b9a2b944919b3f24404203c67b0690d"
+    },
+    {
+      "file": "includes/libarrow_cuda.pxd",
+      "identical": true,
+      "sha256": "d1f45c1db09963f805770217204967a46bd3c5e039c55c591f5fafc19875e923"
+    },
+    {
+      "file": "includes/libarrow_python.pxd",
+      "identical": true,
+      "sha256": "4c098210ad010242b02c5b5ba2be6e76c161aed97c04d73bea3ecae03a33109d"
+    },
+    {
+      "file": "includes/libarrow_flight.pxd",
+      "identical": true,
+      "sha256": "4b1bf674d185f8e79f820d427635a35facb958085c4cf00691e3735cc62d4a11"
+    },
+    {
+      "file": "includes/libarrow_dataset_parquet.pxd",
+      "identical": true,
+      "sha256": "3d6f20e820f6ca3c20c28260610f4db60d9edafe957eee0060be6488ce2cab44"
+    }
+  ],
+  "candidate_source_sha256": "fd2cb4b4cc7d1d70ed2dbc72e2945a1d917025bc78ce4f030aa37549be0335b3",
+  "candidate_test_sha256": "ec25dfb57aca0c28f289e65dcc59be3db2a2f9d8c3de0a24d62c2eab538f09ac",
+  "candidate_commit": "dc2dbb1465f46aa6a2a73ca3e591c5764f3883da",
+  "issue_url": "https://github.com/apache/arrow/issues/53500"
+}

@@ -1,0 +1,89 @@
+{
+  "pyarrow": "26.0.0",
+  "python": "3.14.8 (main, Oct  2 2026, 10:23:31) [GCC 16.2.1 20260810]",
+  "cpp_build_info": {
+    "version": "26.0.0",
+    "version_info": [
+      26,
+      0,
+      0
+    ],
+    "so_version": "2600",
+    "full_so_version": "2600.0.0",
+    "compiler_id": "GNU",
+    "compiler_version": "14.2.1",
+    "compiler_flags": " -Wno-noexcept-type -Wno-self-move -Wno-subobject-linkage  -fdiagnostics-color=always  -Wall -fno-semantic-interposition -msse4.2 ",
+    "git_id": "",
+    "git_description": "",
+    "package_kind": "python-wheel-manylinux228",
+    "build_type": "release"
+  },
+  "results": [
+    {
+      "object": "file",
+      "== None": {
+        "exit_code": 0,
+        "result": "False"
+      },
+      ".equals(None)": {
+        "exit_code": 0,
+        "result": "TypeError"
+      }
+    },
+    {
+      "object": "row_group",
+      "== None": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      },
+      ".equals(None)": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      }
+    },
+    {
+      "object": "column_chunk",
+      "== None": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      },
+      ".equals(None)": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      }
+    },
+    {
+      "object": "statistics",
+      "== None": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      },
+      ".equals(None)": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      }
+    },
+    {
+      "object": "schema",
+      "== None": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      },
+      ".equals(None)": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      }
+    },
+    {
+      "object": "column_schema",
+      "== None": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      },
+      ".equals(None)": {
+        "exit_code": -11,
+        "result": "SIGSEGV"
+      }
+    }
+  ]
+}
