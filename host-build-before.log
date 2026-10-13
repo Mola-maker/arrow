@@ -1,0 +1,54 @@
+running build_ext
+building 'pyarrow.lib' extension
+g++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -fPIC -I/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include -I/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/numpy/_core/include -I/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/include -I/home/jlu/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/include/python3.12 -c /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp -o /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/temp/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.o -std=c++20 -O1 -g0
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp: In function ‘PyObject* __pyx_pf_7pyarrow_3lib_28set_timezone_db_path(PyObject*, PyObject*)’:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:34494:21: warning: ‘arrow::GlobalOptions::timezone_db_path’ is deprecated: Deprecated in 24.0.0. Only needed for Clang/libc++ on Windows. [-Wdeprecated-declarations]
+34494 |     __pyx_v_options.timezone_db_path = ((std::optional<std::string> )((std::string)__pyx_t_7));
+      |                     ^~~~~~~~~~~~~~~~
+In file included from /home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/api.h:29,
+                 from /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:1546:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/config.h:102:30: note: declared here
+  102 |   std::optional<std::string> timezone_db_path;
+      |                              ^~~~~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:34494:21: warning: ‘arrow::GlobalOptions::timezone_db_path’ is deprecated: Deprecated in 24.0.0. Only needed for Clang/libc++ on Windows. [-Wdeprecated-declarations]
+34494 |     __pyx_v_options.timezone_db_path = ((std::optional<std::string> )((std::string)__pyx_t_7));
+      |                     ^~~~~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/config.h:102:30: note: declared here
+  102 |   std::optional<std::string> timezone_db_path;
+      |                              ^~~~~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:34494:21: warning: ‘arrow::GlobalOptions::timezone_db_path’ is deprecated: Deprecated in 24.0.0. Only needed for Clang/libc++ on Windows. [-Wdeprecated-declarations]
+34494 |     __pyx_v_options.timezone_db_path = ((std::optional<std::string> )((std::string)__pyx_t_7));
+      |                     ^~~~~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/config.h:102:30: note: declared here
+  102 |   std::optional<std::string> timezone_db_path;
+      |                              ^~~~~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp: In function ‘PyObject* __pyx_pf_7pyarrow_3lib_268get_tensor_size(PyObject*, __pyx_obj_7pyarrow_3lib_Tensor*)’:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:296026:89: warning: ‘arrow::Status arrow::ipc::GetTensorSize(const arrow::Tensor&, int64_t*)’ is deprecated: Tensor-specific IPC messages are deprecated in 26.0.0. Use FixedShapeTensor extension arrays instead. [-Wdeprecated-declarations]
+296026 |                 __pyx_t_1 = __pyx_f_7pyarrow_3lib_check_status(arrow::ipc::GetTensorSize((*__pyx_v_tensor->tp), (&__pyx_v_size))); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(19, 1338, __pyx_L4_error)
+       |                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/ipc/api.h:24,
+                 from /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:1560:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/ipc/writer.h:274:8: note: declared here
+  274 | Status GetTensorSize(const Tensor& tensor, int64_t* size);
+      |        ^~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp: In function ‘PyObject* __pyx_pf_7pyarrow_3lib_272write_tensor(PyObject*, __pyx_obj_7pyarrow_3lib_Tensor*, __pyx_obj_7pyarrow_3lib_NativeFile*)’:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:296474:87: warning: ‘arrow::Status arrow::ipc::WriteTensor(const arrow::Tensor&, arrow::io::OutputStream*, int32_t*, int64_t*)’ is deprecated: Tensor-specific IPC messages are deprecated in 26.0.0. Use FixedShapeTensor extension arrays instead. [-Wdeprecated-declarations]
+296474 |                 __pyx_t_2 = __pyx_f_7pyarrow_3lib_check_status(arrow::ipc::WriteTensor((*__pyx_v_tensor->tp), __pyx_v_handle.get(), (&__pyx_v_metadata_length), (&__pyx_v_body_length))); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(19, 1378, __pyx_L4_error)
+       |                                                                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/ipc/writer.h:308:8: note: declared here
+  308 | Status WriteTensor(const Tensor& tensor, io::OutputStream* dst, int32_t* metadata_length,
+      |        ^~~~~~~~~~~
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp: In function ‘PyObject* __pyx_pf_7pyarrow_3lib_274read_tensor(PyObject*, PyObject*)’:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:296905:111: warning: ‘arrow::Result<std::shared_ptr<arrow::Tensor> > arrow::ipc::ReadTensor(arrow::io::InputStream*)’ is deprecated: Tensor-specific IPC messages are deprecated in 26.0.0. Use FixedShapeTensor extension arrays instead. [-Wdeprecated-declarations]
+296905 |                 __pyx_t_3 = arrow::py::GetResultValue<std::shared_ptr< arrow::Tensor> >(arrow::ipc::ReadTensor(__pyx_v_c_stream)); if (unlikely(__Pyx_ErrOccurredWithGIL())) __PYX_ERR(19, 1420, __pyx_L4_error)
+       |                                                                                         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+In file included from /home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/ipc/api.h:23:
+/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow/include/arrow/ipc/reader.h:595:33: note: declared here
+  595 | Result<std::shared_ptr<Tensor>> ReadTensor(io::InputStream* file);
+      |                                 ^~~~~~~~~~
+In file included from /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.cpp:1500:
+/home/jlu/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/include/python3.12/datetime.h: At global scope:
+/home/jlu/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/include/python3.12/datetime.h:197:25: warning: ‘PyDateTimeAPI’ defined but not used [-Wunused-variable]
+  197 | static PyDateTime_CAPI *PyDateTimeAPI = NULL;
+      |                         ^~~~~~~~~~~~~
+g++ -fno-strict-overflow -Wsign-compare -Wunreachable-code -DNDEBUG -g -O3 -Wall -O3 -fstack-protector -fstack-clash-protection -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -fPIC -pthread -shared -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now -Wl,--build-id=sha1 -Wl,--exclude-libs,ALL /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/temp/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/cython/home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-baseline-source/python/pyarrow/lib.o -L/home/jlu/Documents/Codex/2026-10-12/new-chat/work/venvs/arrow-string-buffers/lib/python3.12/site-packages/pyarrow -L/install/lib -Wl,--enable-new-dtags -Wl,-rpath,$ORIGIN -larrow_python -larrow -o /home/jlu/Documents/Codex/2026-10-12/new-chat/work/build/arrow-string-lib-before/lib/pyarrow/lib.cpython-312-x86_64-linux-gnu.so

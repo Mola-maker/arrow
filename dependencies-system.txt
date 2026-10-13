@@ -1,0 +1,12 @@
+Python 3.14.8
+g++ (GCC) 16.2.1 20260810
+Linux 7.2.8-5-omarchy-bore x86_64 GNU/Linux
+               total        used        free      shared  buff/cache   available
+Mem:           24022        2452       21225          71        1570       21569
+Swap:          31943           0       31943
+vm.overcommit_memory = 0
+omarchy-dev 4.0.0.r6911.g9480d1b-1
+python 3.14.8-1
+gcc 16.2.1+r23+gd564253eb6c8-1
+bash 5.3.20-1
+foot 1.28.0-2

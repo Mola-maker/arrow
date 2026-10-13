@@ -1,0 +1,359 @@
+FFFFFF                                                                   [100%]
+=================================== FAILURES ===================================
+_ test_string_from_buffers_large_counters[length-StringArray-string_type0-<i] __
+
+array_factory = <class 'pyarrow.lib.StringArray'>
+string_type = DataType(string), offset_format = '<i', counter = 'length'
+
+    @pytest.mark.large_memory
+    @pytest.mark.skipif(
+        sys.maxsize <= 2**31, reason="Requires a 64-bit address space",
+    )
+    @pytest.mark.parametrize("array_factory,string_type,offset_format", [
+        (pa.StringArray, pa.string(), "<i"),
+        (pa.LargeStringArray, pa.large_string(), "<q"),
+    ])
+    @pytest.mark.parametrize("counter", ["length", "offset", "null_count"])
+    def test_string_from_buffers_large_counters(array_factory, string_type,
+                                               offset_format, counter):
+        mmap = pytest.importorskip("mmap")
+        if not hasattr(mmap, "MAP_ANONYMOUS"):
+            pytest.skip("Requires private anonymous mappings")
+    
+        boundary = 2**31
+        length = boundary + 1 if counter == "length" else 1
+        offset = boundary if counter == "offset" else 0
+        null_count = boundary if counter == "null_count" else 0
+        if counter == "null_count":
+            length = boundary
+    
+        # Zero-filled private mappings reserve address space without materializing
+        # billions of empty strings. Only the final offset and value are nonzero.
+        width = struct.calcsize(offset_format)
+        offsets_size = (length + offset + 1) * width
+        offsets_map = mmap.mmap(-1, offsets_size,
+                               flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+        struct.pack_into(offset_format, offsets_map, offsets_size - width, 1)
+        offsets = pa.py_buffer(offsets_map)
+        data = pa.py_buffer(b"x")
+        null_bitmap = None
+        if null_count:
+            bitmap_map = mmap.mmap(-1, (length + 7) // 8,
+                                  flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+            null_bitmap = pa.py_buffer(bitmap_map)
+    
+        expected = pa.Array.from_buffers(string_type, length,
+                                         [null_bitmap, offsets, data],
+                                         null_count=null_count, offset=offset)
+        expected.validate()
+        assert expected[-1].as_py() == (None if null_count else "x")
+    
+>       result = array_factory.from_buffers(length, offsets, data, null_bitmap,
+                                            null_count, offset)
+
+venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py:870: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   def from_buffers(int length, Buffer value_offsets, Buffer data,
+E   OverflowError: value too large to convert to int
+
+before/python/pyarrow/array.pxi:4206: OverflowError
+_ test_string_from_buffers_large_counters[length-LargeStringArray-string_type1-<q] _
+
+array_factory = <class 'pyarrow.lib.LargeStringArray'>
+string_type = DataType(large_string), offset_format = '<q', counter = 'length'
+
+    @pytest.mark.large_memory
+    @pytest.mark.skipif(
+        sys.maxsize <= 2**31, reason="Requires a 64-bit address space",
+    )
+    @pytest.mark.parametrize("array_factory,string_type,offset_format", [
+        (pa.StringArray, pa.string(), "<i"),
+        (pa.LargeStringArray, pa.large_string(), "<q"),
+    ])
+    @pytest.mark.parametrize("counter", ["length", "offset", "null_count"])
+    def test_string_from_buffers_large_counters(array_factory, string_type,
+                                               offset_format, counter):
+        mmap = pytest.importorskip("mmap")
+        if not hasattr(mmap, "MAP_ANONYMOUS"):
+            pytest.skip("Requires private anonymous mappings")
+    
+        boundary = 2**31
+        length = boundary + 1 if counter == "length" else 1
+        offset = boundary if counter == "offset" else 0
+        null_count = boundary if counter == "null_count" else 0
+        if counter == "null_count":
+            length = boundary
+    
+        # Zero-filled private mappings reserve address space without materializing
+        # billions of empty strings. Only the final offset and value are nonzero.
+        width = struct.calcsize(offset_format)
+        offsets_size = (length + offset + 1) * width
+        offsets_map = mmap.mmap(-1, offsets_size,
+                               flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+        struct.pack_into(offset_format, offsets_map, offsets_size - width, 1)
+        offsets = pa.py_buffer(offsets_map)
+        data = pa.py_buffer(b"x")
+        null_bitmap = None
+        if null_count:
+            bitmap_map = mmap.mmap(-1, (length + 7) // 8,
+                                  flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+            null_bitmap = pa.py_buffer(bitmap_map)
+    
+        expected = pa.Array.from_buffers(string_type, length,
+                                         [null_bitmap, offsets, data],
+                                         null_count=null_count, offset=offset)
+        expected.validate()
+        assert expected[-1].as_py() == (None if null_count else "x")
+    
+>       result = array_factory.from_buffers(length, offsets, data, null_bitmap,
+                                            null_count, offset)
+
+venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py:870: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   def from_buffers(int length, Buffer value_offsets, Buffer data,
+E   OverflowError: value too large to convert to int
+
+before/python/pyarrow/array.pxi:4244: OverflowError
+_ test_string_from_buffers_large_counters[offset-StringArray-string_type0-<i] __
+
+array_factory = <class 'pyarrow.lib.StringArray'>
+string_type = DataType(string), offset_format = '<i', counter = 'offset'
+
+    @pytest.mark.large_memory
+    @pytest.mark.skipif(
+        sys.maxsize <= 2**31, reason="Requires a 64-bit address space",
+    )
+    @pytest.mark.parametrize("array_factory,string_type,offset_format", [
+        (pa.StringArray, pa.string(), "<i"),
+        (pa.LargeStringArray, pa.large_string(), "<q"),
+    ])
+    @pytest.mark.parametrize("counter", ["length", "offset", "null_count"])
+    def test_string_from_buffers_large_counters(array_factory, string_type,
+                                               offset_format, counter):
+        mmap = pytest.importorskip("mmap")
+        if not hasattr(mmap, "MAP_ANONYMOUS"):
+            pytest.skip("Requires private anonymous mappings")
+    
+        boundary = 2**31
+        length = boundary + 1 if counter == "length" else 1
+        offset = boundary if counter == "offset" else 0
+        null_count = boundary if counter == "null_count" else 0
+        if counter == "null_count":
+            length = boundary
+    
+        # Zero-filled private mappings reserve address space without materializing
+        # billions of empty strings. Only the final offset and value are nonzero.
+        width = struct.calcsize(offset_format)
+        offsets_size = (length + offset + 1) * width
+        offsets_map = mmap.mmap(-1, offsets_size,
+                               flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+        struct.pack_into(offset_format, offsets_map, offsets_size - width, 1)
+        offsets = pa.py_buffer(offsets_map)
+        data = pa.py_buffer(b"x")
+        null_bitmap = None
+        if null_count:
+            bitmap_map = mmap.mmap(-1, (length + 7) // 8,
+                                  flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+            null_bitmap = pa.py_buffer(bitmap_map)
+    
+        expected = pa.Array.from_buffers(string_type, length,
+                                         [null_bitmap, offsets, data],
+                                         null_count=null_count, offset=offset)
+        expected.validate()
+        assert expected[-1].as_py() == (None if null_count else "x")
+    
+>       result = array_factory.from_buffers(length, offsets, data, null_bitmap,
+                                            null_count, offset)
+
+venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py:870: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   int offset=0):
+E   OverflowError: value too large to convert to int
+
+before/python/pyarrow/array.pxi:4208: OverflowError
+_ test_string_from_buffers_large_counters[offset-LargeStringArray-string_type1-<q] _
+
+array_factory = <class 'pyarrow.lib.LargeStringArray'>
+string_type = DataType(large_string), offset_format = '<q', counter = 'offset'
+
+    @pytest.mark.large_memory
+    @pytest.mark.skipif(
+        sys.maxsize <= 2**31, reason="Requires a 64-bit address space",
+    )
+    @pytest.mark.parametrize("array_factory,string_type,offset_format", [
+        (pa.StringArray, pa.string(), "<i"),
+        (pa.LargeStringArray, pa.large_string(), "<q"),
+    ])
+    @pytest.mark.parametrize("counter", ["length", "offset", "null_count"])
+    def test_string_from_buffers_large_counters(array_factory, string_type,
+                                               offset_format, counter):
+        mmap = pytest.importorskip("mmap")
+        if not hasattr(mmap, "MAP_ANONYMOUS"):
+            pytest.skip("Requires private anonymous mappings")
+    
+        boundary = 2**31
+        length = boundary + 1 if counter == "length" else 1
+        offset = boundary if counter == "offset" else 0
+        null_count = boundary if counter == "null_count" else 0
+        if counter == "null_count":
+            length = boundary
+    
+        # Zero-filled private mappings reserve address space without materializing
+        # billions of empty strings. Only the final offset and value are nonzero.
+        width = struct.calcsize(offset_format)
+        offsets_size = (length + offset + 1) * width
+        offsets_map = mmap.mmap(-1, offsets_size,
+                               flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+        struct.pack_into(offset_format, offsets_map, offsets_size - width, 1)
+        offsets = pa.py_buffer(offsets_map)
+        data = pa.py_buffer(b"x")
+        null_bitmap = None
+        if null_count:
+            bitmap_map = mmap.mmap(-1, (length + 7) // 8,
+                                  flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+            null_bitmap = pa.py_buffer(bitmap_map)
+    
+        expected = pa.Array.from_buffers(string_type, length,
+                                         [null_bitmap, offsets, data],
+                                         null_count=null_count, offset=offset)
+        expected.validate()
+        assert expected[-1].as_py() == (None if null_count else "x")
+    
+>       result = array_factory.from_buffers(length, offsets, data, null_bitmap,
+                                            null_count, offset)
+
+venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py:870: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   int offset=0):
+E   OverflowError: value too large to convert to int
+
+before/python/pyarrow/array.pxi:4246: OverflowError
+_ test_string_from_buffers_large_counters[null_count-StringArray-string_type0-<i] _
+
+array_factory = <class 'pyarrow.lib.StringArray'>
+string_type = DataType(string), offset_format = '<i', counter = 'null_count'
+
+    @pytest.mark.large_memory
+    @pytest.mark.skipif(
+        sys.maxsize <= 2**31, reason="Requires a 64-bit address space",
+    )
+    @pytest.mark.parametrize("array_factory,string_type,offset_format", [
+        (pa.StringArray, pa.string(), "<i"),
+        (pa.LargeStringArray, pa.large_string(), "<q"),
+    ])
+    @pytest.mark.parametrize("counter", ["length", "offset", "null_count"])
+    def test_string_from_buffers_large_counters(array_factory, string_type,
+                                               offset_format, counter):
+        mmap = pytest.importorskip("mmap")
+        if not hasattr(mmap, "MAP_ANONYMOUS"):
+            pytest.skip("Requires private anonymous mappings")
+    
+        boundary = 2**31
+        length = boundary + 1 if counter == "length" else 1
+        offset = boundary if counter == "offset" else 0
+        null_count = boundary if counter == "null_count" else 0
+        if counter == "null_count":
+            length = boundary
+    
+        # Zero-filled private mappings reserve address space without materializing
+        # billions of empty strings. Only the final offset and value are nonzero.
+        width = struct.calcsize(offset_format)
+        offsets_size = (length + offset + 1) * width
+        offsets_map = mmap.mmap(-1, offsets_size,
+                               flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+        struct.pack_into(offset_format, offsets_map, offsets_size - width, 1)
+        offsets = pa.py_buffer(offsets_map)
+        data = pa.py_buffer(b"x")
+        null_bitmap = None
+        if null_count:
+            bitmap_map = mmap.mmap(-1, (length + 7) // 8,
+                                  flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+            null_bitmap = pa.py_buffer(bitmap_map)
+    
+        expected = pa.Array.from_buffers(string_type, length,
+                                         [null_bitmap, offsets, data],
+                                         null_count=null_count, offset=offset)
+        expected.validate()
+        assert expected[-1].as_py() == (None if null_count else "x")
+    
+>       result = array_factory.from_buffers(length, offsets, data, null_bitmap,
+                                            null_count, offset)
+
+venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py:870: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   def from_buffers(int length, Buffer value_offsets, Buffer data,
+E   OverflowError: value too large to convert to int
+
+before/python/pyarrow/array.pxi:4206: OverflowError
+_ test_string_from_buffers_large_counters[null_count-LargeStringArray-string_type1-<q] _
+
+array_factory = <class 'pyarrow.lib.LargeStringArray'>
+string_type = DataType(large_string), offset_format = '<q'
+counter = 'null_count'
+
+    @pytest.mark.large_memory
+    @pytest.mark.skipif(
+        sys.maxsize <= 2**31, reason="Requires a 64-bit address space",
+    )
+    @pytest.mark.parametrize("array_factory,string_type,offset_format", [
+        (pa.StringArray, pa.string(), "<i"),
+        (pa.LargeStringArray, pa.large_string(), "<q"),
+    ])
+    @pytest.mark.parametrize("counter", ["length", "offset", "null_count"])
+    def test_string_from_buffers_large_counters(array_factory, string_type,
+                                               offset_format, counter):
+        mmap = pytest.importorskip("mmap")
+        if not hasattr(mmap, "MAP_ANONYMOUS"):
+            pytest.skip("Requires private anonymous mappings")
+    
+        boundary = 2**31
+        length = boundary + 1 if counter == "length" else 1
+        offset = boundary if counter == "offset" else 0
+        null_count = boundary if counter == "null_count" else 0
+        if counter == "null_count":
+            length = boundary
+    
+        # Zero-filled private mappings reserve address space without materializing
+        # billions of empty strings. Only the final offset and value are nonzero.
+        width = struct.calcsize(offset_format)
+        offsets_size = (length + offset + 1) * width
+        offsets_map = mmap.mmap(-1, offsets_size,
+                               flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+        struct.pack_into(offset_format, offsets_map, offsets_size - width, 1)
+        offsets = pa.py_buffer(offsets_map)
+        data = pa.py_buffer(b"x")
+        null_bitmap = None
+        if null_count:
+            bitmap_map = mmap.mmap(-1, (length + 7) // 8,
+                                  flags=mmap.MAP_PRIVATE | mmap.MAP_ANONYMOUS)
+            null_bitmap = pa.py_buffer(bitmap_map)
+    
+        expected = pa.Array.from_buffers(string_type, length,
+                                         [null_bitmap, offsets, data],
+                                         null_count=null_count, offset=offset)
+        expected.validate()
+        assert expected[-1].as_py() == (None if null_count else "x")
+    
+>       result = array_factory.from_buffers(length, offsets, data, null_bitmap,
+                                            null_count, offset)
+
+venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py:870: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+>   def from_buffers(int length, Buffer value_offsets, Buffer data,
+E   OverflowError: value too large to convert to int
+
+before/python/pyarrow/array.pxi:4244: OverflowError
+=========================== short test summary info ============================
+FAILED venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py::test_string_from_buffers_large_counters[length-StringArray-string_type0-<i]
+FAILED venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py::test_string_from_buffers_large_counters[length-LargeStringArray-string_type1-<q]
+FAILED venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py::test_string_from_buffers_large_counters[offset-StringArray-string_type0-<i]
+FAILED venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py::test_string_from_buffers_large_counters[offset-LargeStringArray-string_type1-<q]
+FAILED venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py::test_string_from_buffers_large_counters[null_count-StringArray-string_type0-<i]
+FAILED venv/lib/python3.14/site-packages/pyarrow/tests/test_array.py::test_string_from_buffers_large_counters[null_count-LargeStringArray-string_type1-<q]
+6 failed, 366 deselected in 1.70s

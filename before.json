@@ -1,0 +1,79 @@
+{
+  "python": "3.14.8",
+  "pyarrow": "26.0.0",
+  "cases": [
+    {
+      "factory": "StringArray",
+      "counter": "length",
+      "length": 2147483649,
+      "offset": 0,
+      "null_count": 0,
+      "mapped_offsets_bytes": 8589934600,
+      "generic_factory": "valid",
+      "generic_last_value": "x",
+      "specialized_factory": "OverflowError",
+      "error": "value too large to convert to int"
+    },
+    {
+      "factory": "StringArray",
+      "counter": "offset",
+      "length": 1,
+      "offset": 2147483648,
+      "null_count": 0,
+      "mapped_offsets_bytes": 8589934600,
+      "generic_factory": "valid",
+      "generic_last_value": "x",
+      "specialized_factory": "OverflowError",
+      "error": "value too large to convert to int"
+    },
+    {
+      "factory": "StringArray",
+      "counter": "null_count",
+      "length": 2147483648,
+      "offset": 0,
+      "null_count": 2147483648,
+      "mapped_offsets_bytes": 8589934596,
+      "generic_factory": "valid",
+      "generic_last_value": null,
+      "specialized_factory": "OverflowError",
+      "error": "value too large to convert to int"
+    },
+    {
+      "factory": "LargeStringArray",
+      "counter": "length",
+      "length": 2147483649,
+      "offset": 0,
+      "null_count": 0,
+      "mapped_offsets_bytes": 17179869200,
+      "generic_factory": "valid",
+      "generic_last_value": "x",
+      "specialized_factory": "OverflowError",
+      "error": "value too large to convert to int"
+    },
+    {
+      "factory": "LargeStringArray",
+      "counter": "offset",
+      "length": 1,
+      "offset": 2147483648,
+      "null_count": 0,
+      "mapped_offsets_bytes": 17179869200,
+      "generic_factory": "valid",
+      "generic_last_value": "x",
+      "specialized_factory": "OverflowError",
+      "error": "value too large to convert to int"
+    },
+    {
+      "factory": "LargeStringArray",
+      "counter": "null_count",
+      "length": 2147483648,
+      "offset": 0,
+      "null_count": 2147483648,
+      "mapped_offsets_bytes": 17179869192,
+      "generic_factory": "valid",
+      "generic_last_value": null,
+      "specialized_factory": "OverflowError",
+      "error": "value too large to convert to int"
+    }
+  ],
+  "peak_rss_kib": 78088
+}
